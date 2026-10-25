@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Golu – Data Analytics Intern | Fresher</title>
+<meta name="description" content="Portfolio of Golu, an aspiring data analyst from Delhi learning Excel, SQL and Power BI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2F7;--surface:#FFFFFF;--ink:#14213D;--muted:#4A5873;--line:#C9D3E2;
+  --accent:#2447D6;--accent-ink:#FFFFFF;--mark:#F2A900;--grid:rgba(20,33,61,.06);
+  --head:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1626;--surface:#16213A;--ink:#E8EEF8;--muted:#9FB0CC;--line:#2A3858;--accent:#7C9BFF;--accent-ink:#0E1626;--mark:#F5B83D;--grid:rgba(232,238,248,.05);color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0E1626;--surface:#16213A;--ink:#E8EEF8;--muted:#9FB0CC;--line:#2A3858;--accent:#7C9BFF;--accent-ink:#0E1626;--mark:#F5B83D;--grid:rgba(232,238,248,.05);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--mark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.logo{font:800 1.25rem var(--head);color:var(--ink);text-decoration:none}
+.links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.links a{color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:6px;font-size:.95rem}
+.links a:hover{background:var(--surface)}
+.theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:6px 10px;font:inherit;font-size:.9rem;cursor:pointer}
+@media (max-width:640px){.links a:not(.keep){display:none}}
+section{padding:72px 0}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:28px}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0 0 1em;max-width:64ch}
+.hero{padding-top:56px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+h1{font-size:clamp(3.2rem,11vw,6.5rem);font-weight:800;letter-spacing:-.03em}
+.sub{font:500 1.4rem/1.35 var(--head);margin:18px 0 12px;max-width:26ch}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:500;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:6px 6px 0 var(--mark)}
+.sheet-bar{padding:10px 16px;border-bottom:1px solid var(--line);font:500 .9rem var(--body);color:var(--muted)}
+.sheet dl{margin:0}
+.row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);opacity:0;transform:translateX(-8px);animation:row .45s ease forwards}
+.row:last-child{border-bottom:0}
+.row:nth-child(1){animation-delay:.1s}.row:nth-child(2){animation-delay:.25s}.row:nth-child(3){animation-delay:.4s}.row:nth-child(4){animation-delay:.55s}.row:nth-child(5){animation-delay:.7s}
+@keyframes row{to{opacity:1;transform:none}}
+dt{color:var(--muted);font-size:.95rem}
+dd{margin:0;font-weight:500}
+.filters{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 16px;font:inherit;font-size:.95rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.9rem;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500;white-space:nowrap}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line)}
+.tag.using{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.tag.learning{border-color:var(--mark);box-shadow:inset 0 0 0 1px var(--mark)}
+.project{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:10px;padding:28px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px;padding:0;list-style:none}
+.stack li{border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-size:.9rem}
+.project ul.pts{padding-left:20px;margin:0 0 20px;max-width:64ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px}
+.card p{margin:6px 0 0;color:var(--muted)}
+.strengths{display:flex;flex-wrap:wrap;gap:10px;padding:0;list-style:none;margin:0}
+.strengths li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 16px;font-weight:500}
+.contact-list{display:grid;gap:12px;padding:0;list-style:none;margin:0 0 20px}
+.contact-list span{display:inline-block;min-width:90px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.row{animation:none;opacity:1;transform:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Golu</a>
+      <div class="links">
+        <a href="#skills">Skills</a>
+        <a href="#project">Project</a>
+        <a href="#education">Education</a>
+        <a class="keep" href="#contact">Contact</a>
+        <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Golu</h1>
+        <p class="sub">Data analytics fresher turning curiosity into analysis.</p>
+        <p>I studied Political Science and I’m now training in data analytics. I’ve built a Python chatbot with the Google Gemini API and I’m learning Excel, SQL and Power BI.</p>
+        <div class="btns">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="https://chat-by-golu.onrender.com/" target="_blank" rel="noopener">Try my chatbot</a>
+        </div>
+      </div>
+      <div class="sheet" aria-label="Profile summary">
+        <div class="sheet-bar">profile</div>
+        <dl>
+          <div class="row"><dt>Role</dt><dd>Data Analytics Intern (fresher)</dd></div>
+          <div class="row"><dt>Location</dt><dd>Delhi, India</dd></div>
+          <div class="row"><dt>Degree</dt><dd>BA (Hons) Political Science, University of Delhi</dd></div>
+          <div class="row"><dt>Built</dt><dd>AI chatbot with Python and Gemini API</dd></div>
+          <div class="row"><dt>Learning</dt><dd>Excel, SQL, Power BI, Pandas</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p>What I’ve already used in a project, and what I’m learning now.</p>
+      <div class="filters" role="group" aria-label="Filter skills">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-f="using" aria-pressed="false">Used in a project</button>
+        <button class="chip" type="button" data-f="learning" aria-pressed="false">Learning</button>
+      </div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Skill</th><th>Status</th><th>How I use it</th></tr></thead>
+          <tbody id="skillRows">
+            <tr data-s="using"><td>Python</td><td><span class="tag using">Used in a project</span></td><td>Chatbot development and programming fundamentals</td></tr>
+            <tr data-s="using"><td>API integration</td><td><span class="tag using">Used in a project</span></td><td>Connected the Google Gemini API to generate responses</td></tr>
+            <tr data-s="learning"><td>Microsoft Excel</td><td><span class="tag learning">Learning</span></td><td>Studying at Ducat School of AI</td></tr>
+            <tr data-s="learning"><td>SQL</td><td><span class="tag learning">Learning</span></td><td>Studying at Ducat School of AI</td></tr>
+            <tr data-s="learning"><td>Power BI</td><td><span class="tag learning">Learning</span></td><td>Studying at Ducat School of AI</td></tr>
+            <tr data-s="learning"><td>Pandas</td><td><span class="tag learning">Learning</span></td><td>Currently pursuing</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="wrap">
+      <h2>Project</h2>
+      <article class="project">
+        <h3>AI Chatbot Web Application</h3>
+        <ul class="stack" aria-label="Technologies">
+          <li>Python</li><li>Google Gemini API</li><li>API integration</li><li>Web application</li>
+        </ul>
+        <ul class="pts">
+          <li>Built a web-based chatbot using Python and the Google Gemini API.</li>
+          <li>Sent user prompts to the Gemini API and returned AI-generated responses.</li>
+          <li>Created a web interface for interactive conversations.</li>
+          <li>Applied Python and API integration concepts to build an AI-powered application.</li>
+        </ul>
+        <a class="btn primary" href="https://chat-by-golu.onrender.com/" target="_blank" rel="noopener">Open the live chatbot</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education and training</h2>
+      <div class="two">
+        <div class="card">
+          <h3>BA (Honours) in Political Science</h3>
+          <p>College of SOL, University of Delhi<br>Expected graduation: 2026</p>
+        </div>
+        <div class="card">
+          <h3>Data Analytics Course</h3>
+          <p>Ducat School of AI<br>Excel, SQL, Power BI and data analytics fundamentals (in progress)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="strengths">
+    <div class="wrap">
+      <h2>Strengths</h2>
+      <ul class="strengths">
+        <li>Analytical thinking</li><li>Problem-solving</li><li>Attention to detail</li><li>Willingness to learn</li><li>Communication and teamwork</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>I’m looking for a data analytics internship. Send me a message or connect on LinkedIn.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:sg9872220@gmail.com">sg9872220@gmail.com</a></li>
+        <li><span>Phone</span><a href="tel:+917547887034">7547887034</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/golu-singh-ab238b409" target="_blank" rel="noopener">linkedin.com/in/golu-singh-ab238b409</a></li>
+        <li><span>Location</span>Delhi, India</li>
+      </ul>
+      <a class="btn primary" href="mailto:sg9872220@gmail.com?subject=Internship%20opportunity">Email Golu</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="yr">2026</span> Golu. Built with HTML, CSS and JavaScript.</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('theme');if(saved==='light'||saved==='dark')root.setAttribute('data-theme',saved);}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    if(!cur)cur=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  var chips=document.querySelectorAll('.chip'),rows=document.querySelectorAll('#skillRows tr');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.setAttribute('aria-pressed','false');});
+      c.setAttribute('aria-pressed','true');
+      var f=c.getAttribute('data-f');
+      rows.forEach(function(r){r.hidden=!(f==='all'||r.getAttribute('data-s')===f);});
+    });
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
